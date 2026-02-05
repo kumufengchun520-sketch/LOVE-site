@@ -10,13 +10,12 @@
       padding: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(45deg, #ff4d6d, #4d6dff); /* 背景渐变 */
+      background: linear-gradient(45deg, #ff4d6d, #4d6dff);
       display: flex;
       justify-content: center;
       align-items: center;
-      animation: gradientMove 6s ease-in-out infinite;
-      overflow: hidden; /* 防止页面溢出 */
-      position: relative; /* 为樱花提供容器 */
+      animation: gradientMove 6s ease-in-out infinite, noise 3s infinite;
+      overflow: hidden; /* 让樱花不要溢出屏幕 */
     }
 
     .text {
@@ -27,7 +26,6 @@
       animation: breathe 4s ease-in-out infinite, colorChange 6s ease-in-out infinite;
       text-align: center;
       letter-spacing: 4px;
-      z-index: 2; /* 确保文字在樱花上面 */
     }
 
     @keyframes breathe {
@@ -69,17 +67,28 @@
       }
     }
 
-    /* 樱花的样式 */
+    @keyframes noise {
+      0% {
+        background: url('https://www.transparenttextures.com/patterns/diamond.png');
+      }
+      50% {
+        background: url('https://www.transparenttextures.com/patterns/wood_pattern.png');
+      }
+      100% {
+        background: url('https://www.transparenttextures.com/patterns/diagonal-stripes.png');
+      }
+    }
+
+    /* 樱花飘落动画 */
     .sakura {
       position: absolute;
       top: -100px;
-      width: 20px;
-      height: 20px;
-      background-color: pink; /* 樱花颜色 */
-      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://cdn.pixabay.com/photo/2017/08/30/03/27/cherry-blossom-2693139_960_720.png'); /* 樱花图片 */
+      background-size: cover;
       animation: fall 5s linear infinite, float 3s ease-in-out infinite;
-      pointer-events: none; /* 防止影响其他元素 */
-      opacity: 0.8;
+      pointer-events: none; /* 防止樱花影响其他元素 */
     }
 
     /* 樱花下落动画 */
@@ -97,13 +106,13 @@
     /* 随机飘动效果 */
     @keyframes float {
       0% {
-        left: calc(50% - 10px);
+        left: calc(50% - 15px);
       }
       50% {
-        left: calc(70% - 10px);
+        left: calc(70% - 15px);
       }
       100% {
-        left: calc(30% - 10px);
+        left: calc(30% - 15px);
       }
     }
   </style>
@@ -111,7 +120,7 @@
 <body>
   <div class="text">I LOVE YOU<br>张静怡</div>
 
-  <!-- 使用多个小圆点模拟樱花飘落 -->
+  <!-- 加入多个樱花 -->
   <div class="sakura" style="animation-delay: 0s;"></div>
   <div class="sakura" style="animation-delay: 1s;"></div>
   <div class="sakura" style="animation-delay: 2s;"></div>
