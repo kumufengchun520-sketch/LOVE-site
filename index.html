@@ -1,23 +1,44 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>LOVE</title>
+  <meta charset="UTF-8">
+  <title>I LOVE YOU</title>
   <style>
     body {
       margin: 0;
-      background: black;
-      color: white;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      font-family: Consolas, monospace;
-      font-size: 48px;
+      background: black;
+    }
+
+    .text {
+      font-size: 64px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+      animation: breathe 3s ease-in-out infinite;
+      letter-spacing: 4px;
+    }
+
+    @keyframes breathe {
+      0% {
+        opacity: 0.3;
+        transform: scale(0.95);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      100% {
+        opacity: 0.3;
+        transform: scale(0.95);
+      }
     }
   </style>
 </head>
 <body>
-  I love you
+  <div class="text">I LOVE YOU 张静怡</div>
 </body>
 </html>
+
